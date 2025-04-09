@@ -15,20 +15,22 @@ namespace TaskWithTeachers
     {
         static void Main(string[] args)
         {
-            double x, y, res;
+            double x=1, y=1, res;
             int rozv = 0;
-            for (x = 0; x <= 100; x++)
-                for (y = 0; y <= 100; y++)
-                {                    
-                    res = (double)(0.995 * x) - (double)(0.49 * y);
-                    if (res >= -0.026 && res <= -0.024)
-                    {
-                        Console.WriteLine("\n\tx=" + x + ", y=" + y);
-                        Console.WriteLine("\t0.995 * " + x + " - 0.49 * " + y + " = " + res);
-                        Console.WriteLine("\n\tIts result, dude!(Maybe)!!\n");
-                        rozv++;
-                    }
-                }
+            bool a=false;
+do{
+    do{
+        res = (double)(0.995 * x) - (double)(0.49 * y);
+        Console.WriteLine("\n\tx=" + x + ", y=" + y);
+        Console.WriteLine("\t0.995 * " + x + " - 0.49 * " + y + " = " + res);
+        rozv++; y++;
+        if (res >= -0.026 && res <= -0.024) {
+                     Console.WriteLine("\n\tIts result, dude!(Maybe)!!\n");     
+                     a=true;
+                     } 
+    } while (y <=100 && !a);
+    x++; y=0;
+} while(x <= 100 && !a);
             Console.WriteLine("\tCount of calculates: " + rozv);
             Console.ReadKey();
         }
